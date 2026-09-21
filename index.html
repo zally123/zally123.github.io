@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>evad3rs官网 - 面向开发者的iOS越狱资源与社区门户</title>
+    <meta name="description" content="evad3rs官网提供最新的iOS越狱工具下载、Cydia应用商店访问指南、越狱安全提示及开发者社区交流。致力于为iOS设备用户提供安全、稳定的越狱解决方案。">
+    <meta name="keywords" content="evad3rs官网,iOS越狱,越狱下载,红雪,absinthe,Cydia,越狱工具">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f4f6f7;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #c0392b;
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Tools Section */
+        .tools-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tool-item {
+            background: var(--card-bg);
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .tool-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #eef2f5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .tool-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .tool-info .status {
+            font-size: 0.85rem;
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            background-color: #e8f8f5;
+            color: #27ae60;
+        }
+
+        .tool-info .status.outdated {
+            background-color: #fdedec;
+            color: #c0392b;
+        }
+
+        /* Safety Notice */
+        .safety-box {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 2rem 0;
+        }
+
+        .safety-box h3 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            padding-bottom: 1.5rem;
+            max-height: 200px; /* Approximate max height */
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .btn {
+                width: 100%;
+                margin: 0.5rem 0 0 0;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                evad3rs<span>官网</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#tools">越狱工具</a></li>
+                    <li><a href="#guide">使用指南</a></li>
+                    <li><a href="#community">社区论坛</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>探索 iOS 系统的无限可能</h1>
+                <p>evad3rs 官方门户致力于为开发者与爱好者提供最权威的 iOS 越狱工具、Cydia 应用管理及安全修复方案。</p>
+                <div class="hero-actions">
+                    <a href="#tools" class="btn btn-primary">下载最新工具</a>
+                    <a href="#guide" class="btn btn-outline">查看安装教程</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="section">
+            <div class="container">
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>安全可靠</h3>
+                        <p>所有发布工具均经过安全检测，提供详细的签名验证与固件匹配建议。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3>官方支持</h3>
+                        <p>evad3rs 团队直接维护，提供 24/7 的技术支持与社区答疑。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>全机型覆盖</h3>
+                        <p>针对 iPhone、iPad 及 iPod touch 提供针对性的越狱解决方案。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section id="tools" class="section" style="background-color: white;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>热门越狱工具</h2>
+                    <p>根据您的 iOS 版本选择对应的工具进行操作</p>
+                </div>
+
+                <div class="tools-list">
+                    <article class="tool-item">
+                        <div class="tool-icon">⚡</div>
+                        <div class="tool-info">
+                            <h3>Evad3rs 1.x 系列</h3>
+                            <p>支持 iOS 6.x - iOS 7.x</p>
+                            <span class="status outdated">已停止更新</span>
+                        </div>
+                    </article>
+
+                    <article class="tool-item">
+                        <div class="tool-icon">🚀</div>
+                        <div class="tool-info">
+                            <h3>PPJailbreak</h3>
+                            <p>支持 iOS 8.x - iOS 9.0.1</p>
+                            <span class="status outdated">已停止更新</span>
+                        </div>
+                    </article>
+
+                    <article class="tool-item">
+                        <div class="tool-icon">🛠️</div>
+                        <div class="tool-info">
+                            <h3>Yalu & Mach_Portal</h3>
+                            <p>支持 iOS 9.0 - iOS 9.3.5 (32位)</p>
+                            <span class="status outdated">已停止更新</span>
+                        </div>
+                    </article>
+
+                    <article class="tool-item">
+                        <div class="tool-icon">💎</div>
+                        <div class="tool-info">
+                            <h3>Electra</h3>
+                            <p>支持 iOS 11.0 - iOS 11.1.2</p>
+                            <span class="status outdated">已停止更新</span>
+                        </div>
+                    </article>
+                    
+                    <article class="tool-item">
+                        <div class="tool-icon">🧩</div>
+                        <div class="tool-info">
+                            <h3>unc0ver</h3>
+                            <p>支持 iOS 11.0 - iOS 14.3</p>
+                            <span class="status">稳定版</span>
+                        </div>
+                    </article>
+
+                    <article class="tool-item">
+                        <div class="tool-icon">🌊</div>
+                        <div class="tool-info">
+                            <h3>checkra1n</h3>
+                            <p>支持 iOS 12.0 - iOS 14.8</p>
+                            <span class="status">稳定版</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="safety-box">
+                    <h3>⚠️ 安全提示：越狱风险</h3>
+                    <p>越狱操作会修改系统核心文件，可能导致设备变砖或失去 Apple Care+ 赔偿资格。请在操作前务必备份重要数据。建议仅在开发环境或个人测试设备上进行操作。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>安装指南与 Cydia 使用</h2>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <h3>1. 准备工作</h3>
+                        <p>确保设备电量充足（50%以上），使用数据线连接电脑，并下载对应的越狱工具与固件包。</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>2. 进入 DFU 模式</h3>
+                        <p>根据具体工具说明，正确进入 DFU 模式。这是越狱工具识别设备的关键步骤。</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>3. 运行工具</h3>
+                        <p>运行 evad3rs 官方工具，点击 Start 开始越狱进程。完成后设备将自动重启。</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>4. 配置 Cydia</h3>
+                        <p>首次启动会打开 Cydia，建议在源列表中添加官方源（如 evad3rs-Repo）以获取更多插件。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section" style="background-color: white;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                </div>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div class="faq-item">
+                        <div class="faq-question">越狱后设备变慢怎么办？</div>
+                        <div class="faq-answer">
+                            <p>部分非官方的插件或主题可能会导致系统卡顿。请进入设置中的 "Activator" 或 "Cydia" 卸载最近安装的未经验证的插件。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何取消越狱？</div>
+                        <div class="faq-answer">
+                            <p>可以使用 "Pangu" 或 "unc0ver" 提供的取消越狱功能。或者将设备恢复到出厂设置（这将清除所有数据）。注意：取消越狱后部分系统文件可能无法完全还原。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">evad3rs 官方源在哪里？</div>
+                        <div class="faq-answer">
+                            <p>请在 Cydia 的 "管理" -> "软件源" 中添加：apt.evad3rs.com</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">我的 iPhone 14 能越狱吗？</div>
+                        <div class="faq-answer">
+                            <p>截至目前，iOS 15 及更高版本尚未有公开的稳定越狱工具。请关注 evad3rs 官方博客获取最新动态。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>evad3rs官网</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        专注于 iOS 越狱技术研究与资源分享。为开发者提供逆向工程环境，为爱好者提供自由定制体验。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">工具下载</a></li>
+                        <li><a href="#">固件下载</a></li>
+                        <li><a href="#">源码库</a></li>
+                        <li><a href="#">开发者文档</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>社区支持</h4>
+                    <ul>
+                        <li><a href="#">官方论坛</a></li>
+                        <li><a href="#">GitHub 项目</a></li>
+                        <li><a href="#">提交 Bug</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 evad3rs官网. 保留所有权利。本网站仅供技术研究与学习使用。
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
