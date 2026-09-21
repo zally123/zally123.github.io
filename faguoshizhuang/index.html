@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="法国时装秀表演专题页面，提供巴黎时装周、高定秀场、品牌发布会的实时资讯、精选图片及深度回顾。探索时尚界的顶级艺术与创意设计。">
+    <meta name="keywords" content="法国时装秀表演, 巴黎时装周, 时装秀, 高定时装, 时尚资讯, 2024秋冬时装周">
+    <title>法国时装秀表演-顶级时尚盛典与巴黎时装周回顾</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #d4af37;
+            --bg-color: #f8f8f8;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            transform: scale(1.1);
+            animation: slowZoom 20s infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            from { transform: scale(1.1); }
+            to { transform: scale(1.2); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background-color: #e5c14a;
+        }
+
+        /* 分类导航 */
+        .categories {
+            padding: 2rem 0;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .category-list {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .category-item {
+            padding: 0.5rem 1.2rem;
+            background-color: white;
+            border: 1px solid #eee;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .category-item:hover, .category-item.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* 主要内容区 */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            padding: 3rem 0;
+        }
+
+        /* 内容列表 */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: #eee;
+            margin-left: 1.5rem;
+            max-width: 200px;
+        }
+
+        .show-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .show-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .show-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .show-content {
+            padding: 1.5rem;
+        }
+
+        .show-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+        }
+
+        .tag {
+            padding: 2px 8px;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            color: var(--text-main);
+        }
+
+        .tag.hot {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+
+        .show-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .show-excerpt {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .read-more {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more::after {
+            content: '→';
+            margin-left: 5px;
+            transition: margin-left 0.2s;
+        }
+
+        .read-more:hover::after {
+            margin-left: 10px;
+        }
+
+        /* 侧边栏 */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .schedule-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .schedule-list li:last-child {
+            border-bottom: none;
+        }
+
+        .schedule-date {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+
+        .schedule-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .schedule-venue {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* 热门标签 */
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag-cloud-item {
+            font-size: 0.85rem;
+            padding: 4px 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--primary-color);
+            color: #ccc;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .show-image {
+                height: 250px;
+            }
+
+            .section-title::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">Vogue<span>Parade</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">秀场直击</a></li>
+                    <li><a href="#">品牌档案</a></li>
+                    <li><a href="#">设计师专访</a></li>
+                    <li><a href="#">2024日历</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn" aria-label="搜索">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <img src="https://picsum.photos/seed/fashion/1920/1080" alt="巴黎时装周后台" class="hero-bg">
+        <div class="hero-content">
+            <h1>法国时装秀表演</h1>
+            <p>探索巴黎、里昂及尼斯的顶级时尚盛宴，见证创意与工艺的巅峰碰撞。</p>
+            <a href="#latest" class="cta-button">浏览最新秀场</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="categories">
+            <div class="category-list">
+                <a href="#" class="category-item active">全部</a>
+                <a href="#" class="category-item">巴黎时装周</a>
+                <a href="#" class="category-item">高定时装周</a>
+                <a href="#" class="category-item">男士时装周</a>
+                <a href="#" class="category-item">MFW</a>
+                <a href="#" class="category-item">印花与面料</a>
+            </div>
+        </div>
+
+        <div class="main-grid" id="latest">
+            <main>
+                <div class="section-title">
+                    <h2>近期热门秀场</h2>
+                </div>
+
+                <article class="show-card">
+                    <img src="https://picsum.photos/seed/chanel/800/400" alt="香奈儿2024秋冬高级定制秀场" class="show-image">
+                    <div class="show-content">
+                        <div class="show-meta">
+                            <span class="tag hot">热门</span>
+                            <span>巴黎 · Grand Palais</span>
+                            <span>2024年3月</span>
+                        </div>
+                        <h3 class="show-title"><a href="#">香奈儿2024秋冬高级定制：摩登复古的极致演绎</a></h3>
+                        <p class="show-excerpt">在刚刚结束的巴黎大皇宫秀场，香奈儿带来了灵感源自20世纪80年代的全新高定系列。标志性的山茶花、鱼骨胸衣与不对称剪裁巧妙融合，展现了品牌在传统与现代之间的完美平衡。</p>
+                        <a href="#" class="read-more">阅读全文</a>
+                    </div>
+                </article>
+
+                <article class="show-card">
+                    <img src="https://picsum.photos/seed/lv/800/400" alt="路易威登春夏系列秀场" class="show-image">
+                    <div class="show-content">
+                        <div class="show-meta">
+                            <span class="tag">巴黎</span>
+                            <span>卢浮宫庭院</span>
+                            <span>2024年6月</span>
+                        </div>
+                        <h3 class="show-title"><a href="#">路易威登春夏系列：艺术与工艺的跨界对话</a></h3>
+                        <p class="show-excerpt">Virgil Abloh的继任者带领路易威登重回卢浮宫，将古典建筑美学与街头潮流风格相结合。本季秀场不仅是服装的展示，更是一场关于时间与记忆的视觉艺术展。</p>
+                        <a href="#" class="read-more">阅读全文</a>
+                    </div>
+                </article>
+
+                <article class="show-card">
+                    <img src="https://picsum.photos/seed/dior/800/400" alt="迪奥2024秋冬系列秀场" class="show-image">
+                    <div class="show-content">
+                        <div class="show-meta">
+                            <span class="tag">巴黎</span>
+                            <span>杜乐丽花园</span>
+                            <span>2024年1月</span>
+                        </div>
+                        <h3 class="show-title"><a href="#">迪奥2024秋冬男装秀：探索法式优雅的边界</a></h3>
+                        <p class="show-excerpt">迪奥男装创意总监Maria Grazia Chiuri在本季大胆打破了性别界限，通过柔和的色彩与精致的刺绣工艺，重新定义了当代男性的着装美学。</p>
+                        <a href="#" class="read-more">阅读全文</a>
+                    </div>
+                </article>
+            </main>
+
+            <aside>
+                <div class="sidebar-widget">
+                    <h3 class="section-title" style="margin-bottom: 1rem; font-size: 1.2rem;">即将举办</h3>
+                    <ul class="schedule-list">
+                        <li>
+                            <span class="schedule-date">2024年10月</span>
+                            <div class="schedule-name">巴黎高级定制时装周</div>
+                            <div class="schedule-venue">巴黎，法国</div>
+                        </li>
+                        <li>
+                            <span class="schedule-date">2024年2月</span>
+                            <div class="schedule-name">巴黎男装周</div>
+                            <div class="schedule-venue">巴黎，法国</div>
+                        </li>
+                        <li>
+                            <span class="schedule-date">2024年6月</span>
+                            <div class="schedule-name">巴黎成衣周</div>
+                            <div class="schedule-venue">巴黎，法国</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="section-title" style="margin-bottom: 1rem; font-size: 1.2rem;">热门话题标签</h3>
+                    <div class="tags-cloud">
+                        <a href="#" class="tag-cloud-item">#巴黎时装周</a>
+                        <a href="#" class="tag-cloud-item">#高定</a>
+                        <a href="#" class="tag-cloud-item">#秀场直击</a>
+                        <a href="#" class="tag-cloud-item">#时装周穿搭</a>
+                        <a href="#" class="tag-cloud-item">#设计师</a>
+                        <a href="#" class="tag-cloud-item">#时尚杂志</a>
+                        <a href="#" class="tag-cloud-item">#巴黎</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget" style="background: #1a1a1a; color: white;">
+                    <h3 class="section-title" style="margin-bottom: 1rem; font-size: 1.2rem; color: white;">订阅时尚简报</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem; color: #ccc;">获取最新法国时装秀表演的独家资讯与回顾。</p>
+                    <input type="email" placeholder="您的邮箱地址" style="width: 100%; padding: 0.8rem; margin-bottom: 0.8rem; border: none; border-radius: 4px;">
+                    <button style="width: 100%; padding: 0.8rem; background-color: var(--accent-color); border: none; color: var(--primary-color); font-weight: bold; border-radius: 4px; cursor: pointer;">立即订阅</button>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>VogueParade</h3>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">我们致力于为您提供最专业、最全面的法国时装秀表演资讯，从巴黎到里昂，带您领略法兰西时尚的独特魅力。</p>
+                </div>
+                <div class="footer-col">
+                    <h3>栏目导航</h3>
+                    <ul>
+                        <li><a href="#">秀场回顾</a></li>
+                        <li><a href="#">品牌档案</a></li>
+                        <li><a href="#">设计师专访</a></li>
+                        <li><a href="#">时尚百科</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>关注我们</h3>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">YouTube</a></li>
+                        <li><a href="#">Weibo</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 VogueParade. All Rights Reserved. 专注于法国时装秀表演与时尚文化传播。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
