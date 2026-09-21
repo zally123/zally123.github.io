@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Origin官网为您提供EA旗下热门游戏的数字下载、版本更新、游戏库管理和社交互动服务。立即访问Origin，畅玩《FIFA 24》、《星球大战绝地：陨落的武士团》等EA经典大作。">
+    <meta name="keywords" content="Origin官网,EA游戏平台,Origin下载,EA游戏库,Origin账号">
+    <title>Origin官网 - EA游戏平台官方门户与数字下载服务</title>
+    <style>
+        :root {
+            --primary-blue: #1b2838;
+            --accent-blue: #0057a8;
+            --accent-hover: #004494;
+            --bg-light: #f5f5f5;
+            --text-dark: #333;
+            --text-gray: #666;
+            --border-color: #ddd;
+            --card-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--primary-blue);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, #3b82f6, #00c6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        .btn-login {
+            color: white;
+            border: 1px solid rgba(255,255,255,0.4);
+            padding: 6px 16px;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .btn-login:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to right, #0f1c2e 0%, #1b2838 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 10px 28px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary-blue);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--accent-blue);
+            padding-left: 15px;
+            color: var(--primary-blue);
+        }
+
+        /* Feature Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        /* Game Carousel Section */
+        .games-section {
+            margin-bottom: 60px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .game-card:hover {
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+            transform: translateY(-3px);
+        }
+
+        .game-cover {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .game-info {
+            padding: 12px;
+        }
+
+        .game-title {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .game-meta {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        .tag-new {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: var(--accent-blue);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 2px;
+        }
+
+        /* Download Steps */
+        .steps-container {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .steps-list {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .step-item {
+            flex: 1;
+            min-width: 200px;
+            position: relative;
+            padding: 0 15px;
+        }
+
+        .step-number {
+            font-size: 60px;
+            font-weight: 900;
+            color: rgba(0, 87, 168, 0.1);
+            position: absolute;
+            top: -20px;
+            left: 0;
+            z-index: 0;
+        }
+
+        .step-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+        }
+
+        .step-desc {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: rgba(255,255,255,0.7);
+            padding: 60px 20px 20px;
+            font-size: 14px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="url(#paint0_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="url(#paint0_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="url(#paint0_linear)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="paint0_linear" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#3B82F6"/>
+                            <stop offset="1" stop-color="#00C6FF"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>ORIGIN</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">游戏库</a></li>
+                    <li><a href="#">购买</a></li>
+                    <li><a href="#">支持</a></li>
+                    <li><a href="#">新闻</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="btn-login">登录</a>
+                <a href="#" class="btn-login">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>EA游戏，尽在掌握</h1>
+            <p>访问 Origin 官网，下载您喜爱的 EA 游戏，管理您的游戏库，并与好友一起游戏。</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary">免费下载 Origin 客户端</a>
+                <a href="#" class="btn-secondary">浏览游戏库</a>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- Features -->
+        <section class="features">
+            <article class="feature-card">
+                <span class="feature-icon">🎮</span>
+                <h3>游戏库管理</h3>
+                <p>集中管理您的所有 EA 游戏，随时随地一键启动，无需繁琐的安装步骤。</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon">🛒</span>
+                <h3>独家优惠</h3>
+                <p>Origin 会员专享折扣、免费游戏和限时促销，为您节省每一分游戏预算。</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon">🤝</span>
+                <h3>社交互动</h3>
+                <p>与好友聊天、分享成就、组建战队，在 Origin 上体验更丰富的社交乐趣。</p>
+            </article>
+            <article class="feature-card">
+                <span class="feature-icon">🚀</span>
+                <h3>云端存档</h3>
+                <p>跨设备同步游戏进度，无论是在家还是外出，您的游戏进度始终与您同在。</p>
+            </article>
+        </section>
+
+        <!-- Popular Games -->
+        <section class="games-section">
+            <h2 class="section-title">热门游戏推荐</h2>
+            <div class="game-grid">
+                <div class="game-card">
+                    <span class="tag-new">NEW</span>
+                    <img src="https://picsum.photos/seed/fifa/300/400" alt="FIFA 24" class="game-cover">
+                    <div class="game-info">
+                        <div class="game-title">EA Sports FC 24</div>
+                        <div class="game-meta">体育竞技</div>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <img src="https://picsum.photos/seed/starwars/300/400" alt="Star Wars" class="game-cover">
+                    <div class="game-info">
+                        <div class="game-title">星球大战：绝地</div>
+                        <div class="game-meta">动作冒险</div>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <img src="https://picsum.photos/seed/mass/300/400" alt="Mass Effect" class="game-cover">
+                    <div class="game-info">
+                        <div class="game-title">质量效应：传奇版</div>
+                        <div class="game-meta">角色扮演</div>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <img src="https://picsum.photos/seed/apex/300/400" alt="Apex Legends" class="game-cover">
+                    <div class="game-info">
+                        <div class="game-title">Apex 英雄</div>
+                        <div class="game-meta">大逃杀</div>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <img src="https://picsum.photos/seed/sims/300/400" alt="The Sims 4" class="game-cover">
+                    <div class="game-info">
+                        <div class="game-title">模拟人生 4</div>
+                        <div class="game-meta">模拟经营</div>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <img src="https://picsum.photos/seed/fnaf/300/400" alt="Dead Space" class="game-cover">
+                    <div class="game-info">
+                        <div class="game-title">死亡空间 重制版</div>
+                        <div class="game-meta">恐怖射击</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Download -->
+        <section class="steps-container">
+            <h2 class="section-title">如何开始使用 Origin</h2>
+            <div class="steps-list">
+                <div class="step-item">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3 class="step-title">创建账号</h3>
+                        <p class="step-desc">在 Origin 官网注册一个免费账号，填写您的邮箱和密码，完成身份验证。</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3 class="step-title">下载客户端</h3>
+                        <p class="step-desc">下载并安装 Origin 客户端程序，安装过程简单快捷，几分钟即可完成。</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3 class="step-title">选择游戏</h3>
+                        <p class="step-desc">浏览游戏库，选择您感兴趣的游戏，点击“获取”或“购买”进行下载。</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3 class="step-title">开始游戏</h3>
+                        <p class="step-desc">游戏下载完成后，在“我的游戏”中点击“启动”即可开始您的游戏旅程。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于 Origin</h4>
+                <ul>
+                    <li><a href="#">Origin 简介</a></li>
+                    <li><a href="#">Origin 会员计划</a></li>
+                    <li><a href="#">Origin 客户端下载</a></li>
+                    <li><a href="#">EA 新闻中心</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>游戏分类</h4>
+                <ul>
+                    <li><a href="#">体育竞技</a></li>
+                    <li><a href="#">动作冒险</a></li>
+                    <li><a href="#">角色扮演</a></li>
+                    <li><a href="#">大逃杀</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>支持与帮助</h4>
+                <ul>
+                    <li><a href="#">登录问题</a></li>
+                    <li><a href="#">购买与退款</a></li>
+                    <li><a href="#">安全中心</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Electronic Arts Inc. 保留所有权利。Origin 是 EA 的商标。</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+                  </html>
