@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quizas-在线性格测试与心理评估平台</title>
+    <meta name="description" content="quizas提供专业的在线心理测试与性格评估工具，包含MBTI性格测试、职业倾向分析、情感关系匹配等多样化评估服务，帮助您更深入地了解自我。">
+    <meta name="keywords" content="quizas,在线测试,性格测试,心理评估,MBTI,职业规划">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #524ad6;
+            --secondary: #FF6584;
+            --bg-body: #F7F9FC;
+            --bg-card: #FFFFFF;
+            --text-main: #2D3748;
+            --text-light: #718096;
+            --border: #E2E8F0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --radius: 12px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        ul { list-style: none; }
+        button { cursor: pointer; border: none; font-family: inherit; }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span { color: var(--text-main); }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        nav a:hover { color: var(--primary); }
+
+        .btn-login {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn-login:hover { background-color: var(--primary-dark); }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #F7F9FC 0%, #E9ECF9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, rgba(255,255,255,0) 70%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 16px 24px;
+            padding-right: 50px;
+            border-radius: 50px;
+            border: 2px solid var(--border);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.1);
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .stat-item h3 { font-size: 2rem; color: var(--primary); }
+        .stat-item p { color: var(--text-light); font-size: 0.9rem; }
+
+        /* Categories Section */
+        .section-title {
+            text-align: center;
+            margin: 80px 0 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title p { color: var(--text-light); }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 30px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .cat-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(108, 99, 255, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+        }
+
+        .category-card h3 { margin-bottom: 10px; }
+        .category-card p { color: var(--text-light); font-size: 0.9rem; }
+
+        /* Popular Tests Grid */
+        .tests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .test-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .test-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .test-thumb {
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .test-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .test-card:hover .test-thumb img { transform: scale(1.05); }
+
+        .test-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.9);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .test-content { padding: 20px; }
+        .test-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+        .test-desc { color: var(--text-light); font-size: 0.9rem; margin-bottom: 20px; height: 42px; overflow: hidden; }
+        
+        .test-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
+        }
+
+        .test-btn {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .test-btn:hover { text-decoration: underline; }
+
+        /* Why Section */
+        .why-section {
+            background: white;
+            padding: 80px 0;
+            margin-top: 60px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .why-content h2 { font-size: 2.2rem; margin-bottom: 20px; }
+        .why-content p { color: var(--text-light); margin-bottom: 30px; }
+        
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            color: var(--secondary);
+            margin-right: 15px;
+            margin-top: 4px;
+        }
+
+        .why-image img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 20px;
+            background: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            display: none;
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .faq-question { color: var(--primary); }
+
+        /* Footer */
+        footer {
+            background: #2D3748;
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: #A0AEC0;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col a { color: #A0AEC0; font-size: 0.9rem; }
+        .footer-col a:hover { color: white; }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #718096;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper { flex-direction: column; height: auto; padding: 15px 0; }
+            nav ul { margin: 15px 0; gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .hero h1 { font-size: 2rem; }
+            .stats { gap: 30px; }
+            .why-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <a href="#" class="logo">quizas<span>.</span></a>
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">热门测试</a></li>
+                <li><a href="#">职业规划</a></li>
+                <li><a href="#">心理学堂</a></li>
+                <li><a href="#">关于我们</a></li>
+            </ul>
+        </nav>
+        <button class="btn-login">立即登录</button>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>探索未知的自己，发现无限可能</h1>
+            <p>基于科学心理学理论的在线评估平台，为您提供专业、私密、有趣的性格与能力测试。</p>
+            <div class="search-box">
+                <input type="text" placeholder="搜索测试，例如：MBTI、情商、职业规划...">
+                <button aria-label="搜索">🔍</button>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>专业测试</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100万+</h3>
+                    <p>用户信赖</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24h</h3>
+                    <p>极速报告</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>热门测试分类</h2>
+            <p>无论您关注什么，这里都有适合您的评估工具</p>
+        </div>
+        <div class="category-grid">
+            <article class="category-card">
+                <div class="cat-icon">🧠</div>
+                <h3>性格心理</h3>
+                <p>深度解析MBTI、九型人格、大五人格，了解真实的自己。</p>
+            </article>
+            <article class="category-card">
+                <div class="cat-icon">💼</div>
+                <h3>职业发展</h3>
+                <p>职业倾向测试、职场情商、领导力评估，规划您的职业生涯。</p>
+            </article>
+            <article class="category-card">
+                <div class="cat-icon">❤️</div>
+                <h3>情感关系</h3>
+                <p>恋爱匹配度、依恋类型分析、婚姻满意度，探索亲密关系。</p>
+            </article>
+            <article class="category-card">
+                <div class="cat-icon">🧩</div>
+                <h3>潜能开发</h3>
+                <p>智商、情商、逆商测试，挖掘个人优势与潜力。</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Popular Tests Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>本周最受欢迎</h2>
+            <p>用户评价最高，结果最准确的精选测试</p>
+        </div>
+        <div class="tests-grid">
+            <article class="test-card">
+                <div class="test-thumb">
+                    <span class="test-badge">热门</span>
+                    <img src="https://picsum.photos/seed/quiz1/400/300" alt="MBTI测试封面">
+                </div>
+                <div class="test-content">
+                    <h3 class="test-title">2024版 MBTI 性格测试</h3>
+                    <p class="test-desc">经过最新修订的版本，更精准地判断您的性格类型，包含16种人格深度解析。</p>
+                    <div class="test-meta">
+                        <span>⏱️ 12 分钟</span>
+                        <a href="#" class="test-btn">开始测试 →</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="test-card">
+                <div class="test-thumb">
+                    <span class="test-badge">新</span>
+                    <img src="https://picsum.photos/seed/quiz2/400/300" alt="职业规划测试封面">
+                </div>
+                <div class="test-content">
+                    <h3 class="test-title">霍兰德职业兴趣测试</h3>
+                    <p class="test-desc">探索您的工作兴趣类型，找到最适合您的职业领域，助力职业转型。</p>
+                    <div class="test-meta">
+                        <span>⏱️ 8 分钟</span>
+                        <a href="#" class="test-btn">开始测试 →</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="test-card">
+                <div class="test-thumb">
+                    <img src="https://picsum.photos/seed/quiz3/400/300" alt="情商测试封面">
+                </div>
+                <div class="test-content">
+                    <h3 class="test-title">职场情商 EQ 评估</h3>
+                    <p class="test-desc">了解自己在职场中的情绪管理能力，提升人际关系与沟通效率。</p>
+                    <div class="test-meta">
+                        <span>⏱️ 10 分钟</span>
+                        <a href="#" class="test-btn">开始测试 →</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="test-card">
+                <div class="test-thumb">
+                    <span class="test-badge">精选</span>
+                    <img src="https://picsum.photos/seed/quiz4/400/300" alt="恋爱测试封面">
+                </div>
+                <div class="test-content">
+                    <h3 class="test-title">恋爱依恋类型测试</h3>
+                    <p class="test-desc">分析您在亲密关系中的依恋模式，改善恋爱中的沟通与信任。</p>
+                    <div class="test-meta">
+                        <span>⏱️ 5 分钟</span>
+                        <a href="#" class="test-btn">开始测试 →</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Why Section -->
+    <section class="why-section">
+        <div class="container why-grid">
+            <div class="why-content">
+                <h2>为什么选择 quizas？</h2>
+                <p>我们致力于提供最科学、最隐私、最有趣的自我探索体验。每一个测试都经过专业心理学团队审核，确保结果的参考价值。</p>
+                <ul class="feature-list">
+                    <li>
+                        <span class="feature-icon">✓</span>
+                        <div>
+                            <strong>科学严谨</strong>
+                            <p style="font-size: 0.9rem; color: #718096;">基于权威心理学量表开发，结果准确可靠。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="feature-icon">✓</span>
+                        <div>
+                            <strong>隐私保护</strong>
+                            <p style="font-size: 0.9rem; color: #718096;">您的测试数据完全加密，绝不对外泄露。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="feature-icon">✓</span>
+                        <div>
+                            <strong>深度报告</strong>
+                            <p style="font-size: 0.9rem; color: #718096;">不仅给出结果，还提供详细的改进建议与解读。</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="why-image">
+                <img src="https://picsum.photos/seed/psychology/600/400" alt="心理学测试场景">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="section-title">
+            <h2>常见问题</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item active">
+                <button class="faq-question">测试需要多长时间？</button>
+                <div class="faq-answer">大多数测试仅需5到15分钟即可完成，部分深度评估可能需要20分钟左右。建议您预留一段专注的时间进行测试。</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">测试结果准确吗？</button>
+                <div class="faq-answer">我们的测试基于经过验证的心理学理论。结果作为自我探索的参考工具，不能完全定义一个人，建议结合实际情况综合判断。</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">如何获取详细的测试报告？</button>
+                <div class="faq-answer">完成测试后，您需要登录账户。报告将自动生成，包含详细的得分分析、类型解读以及针对性的提升建议。</div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">quizas<span>.</span></a>
+                <p>致力于通过科学的测试工具，帮助用户更好地了解自我，规划人生。</p>
+            </div>
+            <div class="footer-col">
+                <h4>探索</h4>
+                <ul>
+                    <li><a href="#">性格测试</a></li>
+                    <li><a href="#">职业测试</a></li>
+                    <li><a href="#">情商测试</a></li>
+                    <li><a href="#">情感测试</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>资源</h4>
+                <ul>
+                    <li><a href="#">心理学百科</a></li>
+                    <li><a href="#">测评指南</a></li>
+                    <li><a href="#">专家专栏</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关于</h4>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">服务条款</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 quizas. All rights reserved. 本网站为演示页面，不提供真实心理医疗建议。
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<script>
+    // FAQ Toggle Logic
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all items
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // Simple Search Interaction (Visual only)
+    document.querySelector('.search-box button').addEventListener('click', () => {
+        const input = document.querySelector('.search-box input');
+        if(input.value.trim()) {
+            alert('正在搜索：' + input.value + '\n（此为演示交互）');
+        } else {
+            input.focus();
+        }
+    });
+</script>
+</body>
+  </html>
