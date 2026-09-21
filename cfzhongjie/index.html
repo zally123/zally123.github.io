@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CF终结者攻略站提供穿越火线生化模式终结者职业详细介绍、技能解析、实战技巧及地图点位分析。">
+    <meta name="keywords" content="CF终结者,穿越火线,生化模式,终结者攻略,僵尸职业">
+    <title>CF终结者-穿越火线生化模式职业详解与实战攻略</title>
+    <style>
+        :root {
+            --primary-color: #d93025;
+            --secondary-color: #2b2b2b;
+            --accent-color: #fbbc04;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #434343 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 20% 50%, rgba(217, 48, 37, 0.2) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #b92b20;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Grid */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 30px;
+            padding: 40px 0;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title a {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Character Cards */
+        .char-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .char-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid transparent;
+        }
+
+        .char-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .char-card.vip {
+            border-top-color: #fbbc04;
+        }
+
+        .char-card.normal {
+            border-top-color: var(--primary-color);
+        }
+
+        .char-img {
+            width: 100%;
+            height: 180px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .char-info {
+            padding: 15px;
+        }
+
+        .char-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .char-type {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 10px;
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .char-desc {
+            font-size: 0.9rem;
+            color: #555;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-box {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .sidebar-list li {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+
+        .sidebar-list li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-list a {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+
+        .sidebar-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .sidebar-list span {
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+        /* Strategy Content */
+        .strategy-article {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .strategy-content h2 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .strategy-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .strategy-content ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .strategy-content li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background-color: #fff8e1;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 10px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 15px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            background: #fafafa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: #999;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: white;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 15px 20px;
+            max-height: 200px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #888;
+            padding: 40px 0 20px 0;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .char-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                CF<span>终结者</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">首页</a></li>
+                    <li><a href="#characters">职业图鉴</a></li>
+                    <li><a href="#guide">实战攻略</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="container hero-content">
+                <h1>CF 终结者职业图鉴</h1>
+                <p>穿越火线生化模式终极BOSS深度解析，掌握强力僵尸技能，掌握战场主动权。</p>
+                <a href="#characters" class="cta-button">查看所有终结者</a>
+            </div>
+        </section>
+
+        <div class="container main-layout">
+            <!-- Left Content -->
+            <div class="content-area">
+                
+                <!-- Featured Strategy -->
+                <section class="strategy-article">
+                    <h2 class="section-title">热门攻略：如何有效应对终结者</h2>
+                    <div class="strategy-content">
+                        <p>在穿越火线生化模式中，终结者是拥有极高机动性和攻击力的僵尸职业。人类玩家若想存活并反击，必须了解不同终结者的特性及应对策略。</p>
+                        <div class="highlight-box">
+                            <strong>核心原则：</strong>不要试图正面硬刚。利用掩体、跳跃和团队配合是生存的关键。
+                        </div>
+                        <ul>
+                            <li><strong>利用地形：</strong>狭窄的通道和楼梯是终结者的盲区，人类玩家应尽量占据高点。</li>
+                            <li><strong>团队分工：</strong>狙击手负责压制，医疗兵负责支援，冲锋手负责突破。</li>
+                            <li><strong>道具使用：</strong>地雷、闪光弹和烟雾弹是限制终结者移动的有效手段。</li>
+                        </ul>
+                        <p>对于终结者玩家而言，掌握“瞬移”与“跳跃”的节奏，以及在生化酒店等地图中利用机关，是获取高分的关键。</p>
+                    </div>
+                </section>
+
+                <!-- Character List -->
+                <section id="characters">
+                    <div class="section-title">
+                        终结者图鉴
+                        <a href="#">查看更多 &raquo;</a>
+                    </div>
+                    <div class="char-grid">
+                        <!-- Card 1 -->
+                        <article class="char-card vip">
+                            <div class="char-img" style="background: #ffebee;">
+                                <span style="color: #d32f2f;">VIP</span>
+                            </div>
+                            <div class="char-info">
+                                <h3 class="char-name">异形终结者</h3>
+                                <span class="char-type">VIP职业</span>
+                                <p class="char-desc">拥有恐怖的瞬移能力和强大的近战攻击，是生化模式中极具压迫感的BOSS。</p>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="char-card normal">
+                            <div class="char-img" style="background: #e3f2fd;">
+                                <span style="color: #1976d2;">普通</span>
+                            </div>
+                            <div class="char-info">
+                                <h3 class="char-name">生化幽灵</h3>
+                                <span class="char-type">普通职业</span>
+                                <p class="char-desc">经典生化模式BOSS，攻击范围广，能发射追踪导弹，移动速度中等。</p>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="char-card vip">
+                            <div class="char-img" style="background: #e8f5e9;">
+                                <span style="color: #388e3c;">VIP</span>
+                            </div>
+                            <div class="char-info">
+                                <h3 class="char-name">泰坦终结者</h3>
+                                <span class="char-type">VIP职业</span>
+                                <p class="char-desc">体型巨大的僵尸，拥有极高的生命值和范围冲击波技能，是团队的噩梦。</p>
+                            </div>
+                        </article>
+
+                        <!-- Card 4 -->
+                        <article class="char-card normal">
+                            <div class="char-img" style="background: #fff3e0;">
+                                <span style="color: #f57c00;">普通</span>
+                            </div>
+                            <div class="char-info">
+                                <h3 class="char-name">暴走终结者</h3>
+                                <span class="char-type">活动职业</span>
+                                <p class="char-desc">速度极快的突击型BOSS，擅长快速抓捕落单的人类，爆发力惊人。</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- FAQ Section -->
+                <section id="faq">
+                    <div class="section-title">常见问题 (FAQ)</div>
+                    <div class="faq-item">
+                        <div class="faq-question">终结者如何快速复活？</div>
+                        <div class="faq-answer">
+                            <p>终结者在攻击人类或被击杀后，会根据模式设置（如生化金字塔）自动或由系统随机在地图不同位置复活，具体时间取决于当前模式规则。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">人类有哪些职业克制终结者？</div>
+                        <div class="faq-answer">
+                            <p>拥有“加特林”等重武器的职业对终结者有较高伤害加成，而拥有“手雷”或“闪光弹”的爆破手则能有效限制其行动。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">VIP终结者和普通终结者有什么区别？</div>
+                        <div class="faq-answer">
+                            <p>VIP终结者通常拥有更酷炫的技能特效、更高的生命值上限以及独特的攻击方式，是玩家追求高分和体验的优选。</p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Sidebar -->
+            <aside>
+                <div class="sidebar-box">
+                    <h3 class="section-title" style="font-size: 1.2rem; border: none; padding: 0; margin-bottom: 15px;">热门地图</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#">生化金字塔 <span>12k浏览</span></a></li>
+                        <li><a href="#">生化港口 <span>9.8k浏览</span></a></li>
+                        <li><a href="#">生化研究所 <span>8.5k浏览</span></a></li>
+                        <li><a href="#">生化金字塔 <span>7.2k浏览</span></a></li>
+                        <li><a href="#">生化沙漠 <span>6.1k浏览</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-box">
+                    <h3 class="section-title" style="font-size: 1.2rem; border: none; padding: 0; margin-bottom: 15px;">推荐武器</h3>
+                    <ul class="sidebar-list">
+                        <li><a href="#">巴雷特-毁灭 <span>生化增伤</span></a></li>
+                        <li><a href="#">黑骑士 <span>生化支援</span></a></li>
+                        <li><a href="#">火麒麟 <span>高机动</span></a></li>
+                        <li><a href="#">黑金M24 <span>精准打击</span></a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">联系方式</a>
+                <a href="#">免责声明</a>
+                <a href="#">隐私政策</a>
+            </div>
+            <p class="copyright">Copyright &copy; 2023 CF终结者攻略站. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <script>
+        // Simple FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close others
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+      </html>
