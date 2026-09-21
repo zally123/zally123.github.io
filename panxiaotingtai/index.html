@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="潘晓婷台球官方资讯与粉丝门户，提供潘晓婷职业生涯、九球世界冠军成就、最新赛事动态、台球教学视频及球迷互动社区信息。">
+    <meta name="keywords" content="潘晓婷台球,九球天后,潘晓婷职业生涯,台球教学,潘晓婷比赛">
+    <title>潘晓婷台球-九球天后职业生涯与台球教学资讯门户</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #d4af37; /* 金色，象征冠军 */
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/pantable/1920/600.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #b5952f;
+            transform: translateY(-2px);
+        }
+
+        /* Stats Section */
+        .stats-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Career Section */
+        .career-section {
+            padding: 80px 0;
+        }
+
+        .career-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .career-visual {
+            position: relative;
+        }
+
+        .career-visual img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .career-timeline {
+            border-left: 2px solid #e0e0e0;
+            padding-left: 30px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* News Grid */
+        .news-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: var(--bg-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .news-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .news-body {
+            padding: 20px;
+        }
+
+        .news-date {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .news-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .news-excerpt {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        /* Teaching Section */
+        .teaching-section {
+            padding: 80px 0;
+        }
+
+        .teaching-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .teaching-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .teaching-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .teaching-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .teaching-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .career-layout {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .teaching-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <span>🎱</span> 潘晓婷台球
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#career">职业生涯</a></li>
+                    <li><a href="#news">赛事动态</a></li>
+                    <li><a href="#teaching">台球教学</a></li>
+                    <li><a href="#gallery">精彩瞬间</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>九球天后</h1>
+                <p>台球界的传奇人物，中国台球运动的领军者。致力于推广台球文化，分享专业技巧，连接全球台球爱好者。</p>
+                <a href="#teaching" class="btn">观看教学视频</a>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="stats-bar">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <h3>10+</h3>
+                    <p>世界冠军头衔</p>
+                </div>
+                <div class="stat-item">
+                    <h3>9</h3>
+                    <p>女子九球世界冠军</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1</h3>
+                    <p>首位获得“世界排名第一”的亚洲球员</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <p>个人商业代言</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Section -->
+        <section id="career" class="container career-section">
+            <h2 class="section-title">职业生涯</h2>
+            <div class="career-layout">
+                <div class="career-visual">
+                    <img src="https://picsum.photos/seed/pantable2/600/700.jpg" alt="潘晓婷台球比赛现场" width="600" height="700">
+                </div>
+                <div class="career-timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-year">1997年</span>
+                        <div class="timeline-content">
+                            <h4>崭露头角</h4>
+                            <p>获得中国台协杯台球公开赛冠军，正式进入职业台球赛场。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2002年</span>
+                        <div class="timeline-content">
+                            <h4>震惊世界</h4>
+                            <p>在安利杯世界女子九球锦标赛中，以11-0的比分横扫对手，创造历史。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2007年</span>
+                        <div class="timeline-content">
+                            <h4>登顶世界第一</h4>
+                            <p>正式登顶女子九球世界排名第一，成为亚洲台球界的骄傲。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2013年</span>
+                        <div class="timeline-content">
+                            <h4>传奇延续</h4>
+                            <p>第10次获得世界冠军，巩固其在中国台球历史上的统治地位。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news" class="news-section">
+            <div class="container">
+                <h2 class="section-title">赛事与动态</h2>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <img src="https://picsum.photos/seed/pantable3/400/300.jpg" alt="潘晓婷最新比赛" class="news-img">
+                        <div class="news-body">
+                            <span class="news-date">2023-10-15</span>
+                            <h3 class="news-title">潘晓婷现身商业台球赛事，现场指导年轻选手</h3>
+                            <p class="news-excerpt">在近日举办的某品牌台球推广活动中，潘晓婷不仅亲临现场，还与多位新生代选手进行了切磋...</p>
+                            <a href="#" style="color: var(--accent-color); font-size: 0.9rem;">阅读更多 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <img src="https://picsum.photos/seed/pantable4/400/300.jpg" alt="潘晓婷日常训练" class="news-img">
+                        <div class="news-body">
+                            <span class="news-date">2023-09-28</span>
+                            <h3 class="news-title">保持自律：潘晓婷分享日常训练心得</h3>
+                            <p class="news-excerpt">台球是一项需要极高专注力和精细手法的运动。潘晓婷在社交媒体上晒出了日常训练视频...</p>
+                            <a href="#" style="color: var(--accent-color); font-size: 0.9rem;">阅读更多 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <img src="https://picsum.photos/seed/pantable5/400/300.jpg" alt="潘晓婷公益活动" class="news-img">
+                        <div class="news-body">
+                            <span class="news-date">2023-08-10</span>
+                            <h3 class="news-title">推广台球文化：潘晓婷公益行走进校园</h3>
+                            <p class="news-excerpt">为了响应全民健身号召，潘晓婷团队近期深入多所中小学，免费提供台球体验课程...</p>
+                            <a href="#" style="color: var(--accent-color); font-size: 0.9rem;">阅读更多 &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching Section -->
+        <section id="teaching" class="container teaching-section">
+            <h2 class="section-title">台球技巧教学</h2>
+            <div class="teaching-grid">
+                <div class="teaching-card">
+                    <div class="teaching-icon">🎯</div>
+                    <h3>站姿与瞄准</h3>
+                    <p>掌握正确的站姿是打好台球的第一步，潘晓婷教你如何找到最佳的发力点。</p>
+                </div>
+                <div class="teaching-card">
+                    <div class="teaching-icon">✋</div>
+                    <h3>握杆手法</h3>
+                    <p>手腕的放松与发力传递至关重要。了解如何通过手腕控制母球的走位。</p>
+                </div>
+                <div class="teaching-card">
+                    <div class="teaching-icon">🎱</div>
+                    <h3>解球技巧</h3>
+                    <p>面对复杂的球型，如何利用库边反弹和角度计算来解救困境。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">潘晓婷台球门户致力于提供最全面的台球资讯与专业教学。我们关注潘晓婷的职业生涯，同时也为所有台球爱好者提供学习平台。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">个人简介</a></li>
+                        <li><a href="#">荣誉奖项</a></li>
+                        <li><a href="#">商业代言</a></li>
+                        <li><a href="#">媒体报道</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>台球资源</h4>
+                    <ul>
+                        <li><a href="#">球杆推荐</a></li>
+                        <li><a href="#">台球室指南</a></li>
+                        <li><a href="#">赛事日历</a></li>
+                        <li><a href="#">器材保养</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系合作</h4>
+                    <ul>
+                        <li><a href="#">商务合作</a></li>
+                        <li><a href="#">媒体采访</a></li>
+                        <li><a href="#">粉丝互动</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 潘晓婷台球资讯网. All Rights Reserved. 仅供展示与参考，非官方网站。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
